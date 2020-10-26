@@ -1,16 +1,17 @@
 #! /usr/bin/env python3
 
-import time, sys, re, pyautogui
+import time
+import sys, re, pyautogui
 from datetime import datetime
 
 refer = ['5:00PM = 17:00', '6:00PM = 18:00', "7:00PM = 19:00"] #create a table for user reference on 24HR conversion
 print("Reference" "\n----------")
-for time in refer:
-    print("{:<8}".format(time))
+for hours in refer:
+    print("{:<8}".format(hours))
 
 while True:
     sleeps = input('what time (in HH:MM) to turn off?: ')
-    if re.match('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$',sleeps) == None: # regex to test if user input is in correct format
+    if re.match('^([0-1][0-9]|2[0-3]):[0-5][0-9]$',sleeps) == None: # regex to test if user input is in correct format
         print("Please input time in HH:MM format\n")
         time.sleep(1)
         continue
